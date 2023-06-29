@@ -1,0 +1,12 @@
+
+  <form method="post" action="{% url 'calculator:personal_finance_cal' %}">
+    {% csrf_token %}
+    <h2>Financial Calculator</h2>
+    {{ form.as_p }}
+    <input type="submit" value="Calculate">
+  </form>
+
+  {% if calculation_type and result %}
+    <h3>{{ calculation_type }}</h3>
+    <p>The result is: {{ result }}</p>
+  {% endif %}
